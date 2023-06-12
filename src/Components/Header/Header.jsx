@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Header.module.css";
-import DogSvg from "./DogSvg";
+import DogSvg from "../Svgs/DogSvg";
 import { Link } from "react-router-dom";
-import UsuarioSvg from "./UsuarioSvg";
+import UsuarioSvg from "../Svgs/UsuarioSvg";
 
 const Header = () => {
   return (
