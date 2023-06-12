@@ -9,7 +9,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={`${styles.headerContainer} container`}>
         <Link className={styles.linkLogo} to="/">
-          <DogSvg />
+          <DogSvg color="#333" />
         </Link>
 
         <Link className={styles.link} to="login">
