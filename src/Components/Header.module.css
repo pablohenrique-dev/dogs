@@ -1,0 +1,25 @@
+.header {
+  border-bottom: 1px solid #0000001a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 6.4rem; */
+}
+
+.link {
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--gray-20);
+}
+
+.linkLogo {
+  padding: 1.8rem;
+}
