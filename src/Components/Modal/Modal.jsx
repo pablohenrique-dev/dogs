@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Modal.module.css";
 import PropTypes from "prop-types";
 import useFetch from "../../Hooks/useFetch";
-import VisualizacaoSvg from "../Svgs/VisualizacaoSvg";
+import Post from "../PostModal/Post";
 
 const Modal = ({ openModal, setOpenModal, postId }) => {
   const { data, loading, error, request } = useFetch();
@@ -13,28 +13,21 @@ const Modal = ({ openModal, setOpenModal, postId }) => {
     }
   }, [request, postId]);
 
+  function handleCloseModal({ target }) {
+    if (target.id === "modal") setOpenModal(false);
+  }
+
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>Error...</p>;
   if (data) {
     return (
       <div
-        onClick={() => setOpenModal(false)}
+        id="modal"
+        onClick={handleCloseModal}
         style={{ display: openModal ? "flex" : "none" }}
         className={styles.modal}
       >
-        <div className={`${styles.containerModal} zoomIn`}>
-          <img className={styles.img} src={data.photo.src} alt="" />
-          <div className={styles.postInfos}>
-            <div className={styles.author}>
-              <span>@{data.photo.author}</span>
-              <span>
-                <VisualizacaoSvg color={"black"} />
-                {data.photo.acessos}
-              </span>
-            </div>
-            <h2 className={`${styles.title} detail`}>{data.photo.title}</h2>
-          </div>
-        </div>
+        <Post data={data} />
       </div>
     );
   } else return null;
