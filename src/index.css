@@ -23,3 +23,46 @@ html {
   margin: 0 auto;
   padding: 0 1.6rem;
 }
+
+img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.detail::before {
+  content: "";
+  width: 27px;
+  aspect-ratio: 1/1;
+  background: var(--primary-color);
+  position: absolute;
+  left: -10px;
+  bottom: 8px;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.fadeRight {
+  transform: translateX(-20px);
+  animation: fadeRight 0.5s forwards;
+}
+
+@keyframes fadeRight {
+  to {
+    transform: initial;
+  }
+}
+
+.zoomIn {
+  transform: scale(0.5);
+  animation: zoomIn 0.1s ease-in forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: initial;
+  }
+}
