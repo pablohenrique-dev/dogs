@@ -1,11 +1,15 @@
 import React from "react";
 import VisualizacaoSvg from "../Svgs/VisualizacaoSvg";
 import styles from "./Post.module.css";
+import PropTypes from "prop-types";
+import Image from "../Image/Image";
 
 const Post = ({ data }) => {
   return (
     <div className={`${styles.containerModal} zoomIn`}>
-      <img className={styles.img} src={data.photo.src} alt={data.photo.title} />
+      <div className={styles.imgContainer}>
+        <Image src={data.photo.src} alt={data.photo.title} />
+      </div>
       <div className={styles.postInfos}>
         <div className={styles.author}>
           <span>@{data.photo.author}</span>
@@ -32,6 +36,10 @@ const Post = ({ data }) => {
       </div>
     </div>
   );
+};
+
+Post.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Post;

@@ -3,6 +3,8 @@ import useFetch from "../../Hooks/useFetch";
 import styles from "./Home.module.css";
 import VisualizacaoSvg from "../../Components/Svgs/VisualizacaoSvg";
 import Modal from "../../Components/Modal/Modal";
+import Loading from "../../Components/Loading/Loading";
+import Image from "../../Components/Image/Image";
 
 const Home = () => {
   const [modal, setModal] = React.useState(false);
@@ -21,7 +23,7 @@ const Home = () => {
     request("https://dogsapi.origamid.dev/json/api/photo/?_total=16");
   }, [request]);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error...</p>;
   if (data) {
     return (
@@ -33,7 +35,7 @@ const Home = () => {
               if (post.src)
                 return (
                   <li onClick={openModal} className={styles.post} key={post.id}>
-                    <img id={post.id} src={post.src} alt={post.title} />
+                    <Image src={post.src} alt={post.title} />
                     <span
                       onClick={handleIdPost}
                       id={post.id}
