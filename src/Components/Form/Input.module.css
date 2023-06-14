@@ -1,0 +1,35 @@
+.containerInput {
+  margin-bottom: 1.6rem;
+  font-family: var(--type-first);
+}
+
+.input {
+  border: 1px solid #eee;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1.2rem;
+  border-radius: 4px;
+  background: #eee;
+  transition: 0.2s;
+}
+
+.input:hover,
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: var(--white);
+  box-shadow: 0 0 0 3px #fea;
+}
+
+.label {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding-bottom: 0.8rem;
+}
+
+.error {
+  color: #f31;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
+}
