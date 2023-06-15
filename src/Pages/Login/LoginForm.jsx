@@ -3,49 +3,50 @@ import { Link } from "react-router-dom";
 import Input from "../../Components/Form/Input";
 import Button from "../../Components/Form/Button";
 import useForm from "../../Hooks/useForm";
-import { TOKEN_POST, USER_GET } from "../../api";
+import { UserContext } from "../../userContext";
+import Error from "../../Components/Error/Error";
+import styles from "./LoginForm.module.css";
+import stylesBtn from "../../Components/Form/Button.module.css";
 
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
-
-  React.useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    getUser(token);
-  }, []);
-
-  async function getUser(token) {
-    const { url, options } = USER_GET(token);
-    const response = await fetch(url, options);
-    const json = await response.json();
-    console.log(json);
-  }
+  const { loginUser, error, loading } = React.useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      });
-
-      const response = await fetch(url, options);
-      const json = await response.json();
-      window.localStorage.setItem("token", json.token);
-      getUser(json.token);
+      loginUser(username.value, password.value);
     }
   }
 
   return (
-    <section>
+    <section className="fadeRight">
       <h1 className="detail">Login</h1>
-      <form action="" onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input id="username" label="Usuário" type="text" {...username} />
         <Input id="password" label="Senha" type="password" {...password} />
-        <Button text="Entrar" />
+        {loading ? (
+          <Button disabled text="Carregando..." />
+        ) : (
+          <Button text="Entrar" />
+        )}
+
+        <Error error={error} />
       </form>
-      <Link to="/login/criar">Cadastro</Link>
+      <Link className={styles.lost} to="/login/perdeu">
+        Esqueci minha senha
+      </Link>
+      <div className={styles.register}>
+        <h2 className={styles.subtitle}>Cadastre-se</h2>
+        <p className={styles.cadastro}>
+          Ainda não possui conta? Cadastre-se agora.
+        </p>
+        <Link className={stylesBtn.button} to="/login/criar">
+          Cadastro
+        </Link>
+      </div>
     </section>
   );
 };
