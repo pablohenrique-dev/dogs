@@ -1,0 +1,7 @@
+.error {
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  color: #f31;
+  font-family: var(--type-first);
+}
