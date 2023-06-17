@@ -3,6 +3,7 @@
 }
 
 .img {
+  display: grid;
   grid-area: 1/1;
   opacity: 0;
   transition: 0.2s;
