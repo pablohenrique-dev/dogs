@@ -3,6 +3,7 @@ import styles from "./Modal.module.css";
 import PropTypes from "prop-types";
 import useFetch from "../../Hooks/useFetch";
 import Post from "../PostModal/Post";
+import Loading from "../Loading/Loading";
 
 const Modal = ({ openModal, setOpenModal, postId }) => {
   const { data, loading, error, request } = useFetch();
@@ -17,7 +18,7 @@ const Modal = ({ openModal, setOpenModal, postId }) => {
     if (target.id === "modal") setOpenModal(false);
   }
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error...</p>;
   if (data) {
     return (
