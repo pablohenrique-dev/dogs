@@ -3,7 +3,6 @@
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   gap: 3.2rem;
-  margin-top: -6.2rem;
 }
 
 .login::before {

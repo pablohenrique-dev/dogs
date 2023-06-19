@@ -7,6 +7,10 @@
   color: var(--gray-20);
 }
 
+.single.comments {
+  padding: 0px;
+}
+
 .comments li {
   margin-bottom: 0.8rem;
   line-height: 1.2;

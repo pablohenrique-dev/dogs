@@ -2,7 +2,11 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: stretch;
-  margin: 1rem;
+  margin: 1.6rem;
+}
+
+.single.form {
+  margin: 1.6rem 0px;
 }
 
 .textarea {
@@ -12,8 +16,8 @@
   font-family: var(--type-first);
   resize: none;
   border: 1px solid #eee;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
   background: #eee;
   transition: 0.2s;
 }
