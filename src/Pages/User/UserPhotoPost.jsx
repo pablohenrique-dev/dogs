@@ -7,6 +7,7 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTO_POST } from "../../api";
 import Error from "../../Components/Error/Error";
 import { useNavigate } from "react-router-dom";
+import Head from "../../Components/Helpers/Head";
 
 const UserPhotoPost = () => {
   const [img, setImg] = React.useState({});
@@ -43,6 +44,7 @@ const UserPhotoPost = () => {
 
   return (
     <section className={`${styles.photoPost} fadeRight`}>
+      <Head title="Postar fotos" description="Página adicionar novas fotos" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" name="nome" type="text" {...nome} />
         <Input label="Peso" name="peso" type="number" {...peso} />

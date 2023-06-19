@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./PaginaNaoEncontrada.module.css";
+import Head from "../../Components/Helpers/Head";
 
 const PaginaNaoEncontrada = () => {
   return (
     <section className="container mainContainer">
+      <Head title="404" description="Página não encontrada" />
       <h1 className={`${styles.erro} detail`}>
         Erro:
         <span className={styles.container}>

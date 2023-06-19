@@ -5,6 +5,7 @@ import { PHOTO_GET } from "../../api";
 import Error from "../Error/Error";
 import Loading from "../Loading/Loading";
 import PhotoContent from "./PhotoContent";
+import Head from "../Helpers/Head";
 
 const Photo = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const Photo = () => {
   if (data) {
     return (
       <section className="container mainContainer">
+        <Head title={`Foto ${id}`} description="Página com foto única" />
         <PhotoContent data={data} single={true} />
       </section>
     );
