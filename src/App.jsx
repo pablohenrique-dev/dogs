@@ -5,9 +5,10 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Footer from "./Components/Footer/Footer";
 import { UserStorage } from "./userContext";
-import Conta from "./Pages/User/Conta";
 import User from "./Pages/User/User";
 import ProtectedRoute from "./Components/Helpers/ProtectedRoute";
+import Photo from "./Components/Photo/Photo";
+import ScrollToTop from "./Components/Helpers/scrollToTop";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <UserStorage>
         <Header />
         <main>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
@@ -26,6 +28,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="foto/:id" element={<Photo />} />
           </Routes>
         </main>
         <Footer />
