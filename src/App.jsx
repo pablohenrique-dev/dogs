@@ -9,6 +9,8 @@ import User from "./Pages/User/User";
 import ProtectedRoute from "./Components/Helpers/ProtectedRoute";
 import Photo from "./Components/Photo/Photo";
 import ScrollToTop from "./Components/Helpers/scrollToTop";
+import UserProfile from "./Pages/User/UserProfile";
+import PaginaNaoEncontrada from "./Pages/PaginaNaoEncontrada/PaginaNaoEncontrada";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               }
             />
             <Route path="foto/:id" element={<Photo />} />
+            <Route path="perfil/:user" element={<UserProfile />} />
+            <Route path="/*" element={<PaginaNaoEncontrada />} />
           </Routes>
         </main>
         <Footer />

@@ -47,6 +47,7 @@ main {
   color: var(--gray-20);
   font-family: var(--type-second);
   z-index: 1;
+  margin-left: 1rem;
 }
 
 .detail::after {

@@ -1,0 +1,50 @@
+.container {
+  overflow: hidden;
+  width: fit-content;
+  height: 6rem;
+  display: flex;
+  color: var(--gray-20);
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.erro {
+  display: flex;
+}
+
+.first,
+.second,
+.third {
+  font-family: var(--type-second);
+  width: 4rem;
+  font-size: 4.8rem;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  animation: show 1s forwards;
+}
+
+.first {
+  transform: translateY(-16rem);
+}
+
+.second {
+  transform: translateY(16rem);
+  margin-top: -161px;
+}
+
+.third {
+  transform: translateY(-16rem);
+}
+
+@keyframes show {
+  to {
+    transform: initial;
+  }
+}
+
+.text {
+  margin-top: 1.6rem;
+  color: var(--gray-20);
+  font-family: var(--type-first);
+  font-size: 1.6rem;
+}
