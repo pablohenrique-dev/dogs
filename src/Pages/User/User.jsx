@@ -4,13 +4,15 @@ import { Route, Routes } from "react-router-dom";
 import Feed from "../../Components/Feed/Feed";
 import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
+import { UserContext } from "../../userContext";
 
 const User = () => {
+  const { data } = React.useContext(UserContext);
   return (
     <section className="container mainContainer">
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed />} />
+        <Route path="/" element={<Feed user={data.id} />} />
         <Route path="postar" element={<UserPhotoPost />} />
         <Route path="estatisticas" element={<UserStats />} />
       </Routes>
